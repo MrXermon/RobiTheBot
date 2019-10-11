@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/underscore-min.js"></script>
+        <script type="text/javascript" src="js/backbone-min.js"></script>
+        <script type="text/javascript" src="js/joystick_view.js"></script>
+		
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/modern-business.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">RobiTheBot</a>
+           
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div>
+  <center>
+    <img src="http://100.67.254.1:8081" style="max-width: 100%" />
+  </center>  
+	
+    </div>
+ 
+<center> 
+ <script type="text/html" id="joystick-view">
+    <canvas id="joystickCanvas" width="<%= squareSize %>" height="<%= squareSize %>" style="width= "800"; height= "800";">
+        </canvas>
+    </script>
+
+<center> 
+    <div id="joystickContent">
+    </div>
+    <div>
+       <!-- x: <span id="xVal"></span><br/> -->
+       <!-- y: <span id="yVal"></span><br/> -->
+    </div>
+</center> 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var joystickView = new JoystickView(200, function(callbackView){
+                $("#joystickContent").append(callbackView.render().el);
+                setTimeout(function(){
+                    callbackView.renderSprite();
+                }, 0);
+            });
+            joystickView.bind("verticalMove", function(y){
+                $("#yVal").html(y);
+                $.get("http://100.67.254.1/?move&y=" + y)
+            });
+            joystickView.bind("horizontalMove", function(x){
+                $("#xVal").html(x);
+                $.get("http://100.67.254.1/?move&x=" + x)
+
+            });
+        });
+    </script>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Robotik &copy; A &amp; J 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
