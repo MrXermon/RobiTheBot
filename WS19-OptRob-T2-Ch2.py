@@ -19,15 +19,15 @@ try:
 			# Stop and wait
 			Bot.stop()
 			time.sleep(1)
-			
+
 			# Drive backwards
 			Bot.backward()
 			time.sleep(1)
 			Bot.stop()
-			
+
 			# Turn right
 			Bot.right()
-			time.sleep(1)
+			time.sleep(2)
 			Bot.stop()
 except KeyboardInterrupt:
 	GPIO.cleanup()
