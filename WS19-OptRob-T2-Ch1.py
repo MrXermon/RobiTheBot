@@ -9,7 +9,7 @@ Bot.speed(100)
 try:
 	# Loop until forever
 	while True:
-		# Drive forward
+		# Drive forwards
 		Bot.forward()
 		time.sleep(1)
 
@@ -17,7 +17,7 @@ try:
 		Bot.stop()
 		time.sleep(1)
 
-		# Drive backward
+		# Drive backwards
 		Bot.backward()
 		time.sleep(1)
 
