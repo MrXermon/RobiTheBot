@@ -11,16 +11,20 @@ Bot.speed(40)
 IRSensor = TRSensor()
 
 try:
-	# Loop until interrupted
+	# Loop until forever
 	while True:
 		Bot.forward()
 		# Detect black line
 		if IRSensor.AnalogRead()[3] <= 200:
+			# Stop and wait
 			Bot.stop()
+			time.sleep(1)
+			
 			# Drive backwards
 			Bot.backward()
 			time.sleep(1)
 			Bot.stop()
+			
 			# Turn right
 			Bot.right()
 			time.sleep(1)
