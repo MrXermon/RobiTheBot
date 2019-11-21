@@ -50,10 +50,6 @@
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">RobiTheBot</a>
-           
-          </li>
-        </ul>
-      </div>
     </div>
   </nav>
 <div>
@@ -85,14 +81,10 @@
                     callbackView.renderSprite();
                 }, 0);
             });
-            joystickView.bind("verticalMove", function(y){
-                $("#yVal").html(y);
-                $.get("http://100.67.254.1/?move&y=" + y)
-            });
-            joystickView.bind("horizontalMove", function(x){
+            joystickView.bind("move", function(x, y){
                 $("#xVal").html(x);
-                $.get("http://100.67.254.1/?move&x=" + x)
-
+                $("#yVal").html(y);
+                $.get("http://100.67.254.1:8080/" + x + "/" + y)
             });
         });
     </script>

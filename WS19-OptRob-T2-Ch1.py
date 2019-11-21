@@ -4,7 +4,7 @@ import time
 
 # Initialize Bot and set speed
 Bot = AlphaBot2()
-Bot.speed(100)
+Bot.speed(40)
 
 try:
 	# Loop until forever
