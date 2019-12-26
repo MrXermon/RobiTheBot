@@ -39,12 +39,6 @@ class MyHandler(BaseHTTPRequestHandler):
 
 	Bot.speed(abs(y) * 100)
 
-#	if abs(x) > 0.9 or abs(y) > 0.9:
-#		Bot.speed(100)
-#	else:
-#		Bot.speed(40)
-
-
         self.send_response(200)
 	return
 
